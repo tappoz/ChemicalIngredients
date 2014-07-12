@@ -13,7 +13,9 @@ measure : (value unit?) | (rangeValue unit?) ;
 unit : UNITS ;
 
 // the amount stuff
-number : (DIGI) ;
+digi : DIGI ;
+numberAsWord : NUMBER_AS_WORD ;
+number : digi | numberAsWord ;
 numberWithDecimals : NUMBER_WITH_DECIMALS ;
 simpleFraction : SIMPLE_FRACTION ;
 complexFranction : COMPLEX_FRACTION ;
@@ -32,9 +34,11 @@ SIMPLE_FRACTION : (DIGI '/' DIGI) ;                // e.g. "1/2"
 NUMBER_WITH_DECIMALS :  (DIGI ('.' DIGI)?) ;       // e.g. "2.5"
 COMPLEX_FRACTION : (DIGI (' ' SIMPLE_FRACTION)?) ; // e.g. "1 1/2" (which is 1.5)
 
+NUMBER_AS_WORD : ('one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'nine' | 'ten') ;
+
 LINK_IN_RANGE : ('to' | 'or') ;
 
-UNITS : ('ml' | 'grams' | 'cup' | 'l' | 'litres' | 'liters' | 'teaspoon' | 'teaspoons' | 'tablespoon' | 'cans' | 'ounces' | 'ounce' | 'tablespoons' | 'lb' | 'parts' | 'lbs' | 'cup' | 'cups' ) ;
+UNITS : ('ml' | 'grams' | 'g' | 'gram' | 'cup' | 'l' | 'litres' | 'liters' | 'teaspoon' | 'teaspoons' | 'tablespoon' | 'cans' | 'ounces' | 'ounce' | 'tablespoons' | 'lb' | 'parts' | 'lbs' | 'cup' | 'cups' ) ;
 
 WHITESPACE :  [ \t\r\n]+ { if(ignore) skip(); } ;
 PUNCTUATION : [.,:;?!];

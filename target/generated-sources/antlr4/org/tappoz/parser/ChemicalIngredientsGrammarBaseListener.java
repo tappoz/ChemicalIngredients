@@ -121,6 +121,19 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterRangeValue(@NotNull ChemicalIngredientsGrammarParser.RangeValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -128,6 +141,19 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitRangeValue(@NotNull ChemicalIngredientsGrammarParser.RangeValueContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

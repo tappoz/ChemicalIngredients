@@ -97,6 +97,17 @@ public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	void exitUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#digi}.
+	 * @param ctx the parse tree
+	 */
+	void enterDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#digi}.
+	 * @param ctx the parse tree
+	 */
+	void exitDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#rangeValue}.
 	 * @param ctx the parse tree
 	 */
@@ -106,6 +117,17 @@ public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitRangeValue(@NotNull ChemicalIngredientsGrammarParser.RangeValueContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberAsWord}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberAsWord}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#value}.

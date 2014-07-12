@@ -18,18 +18,20 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		DIGI=1, SIMPLE_FRACTION=2, NUMBER_WITH_DECIMALS=3, COMPLEX_FRACTION=4, 
-		LINK_IN_RANGE=5, UNITS=6, WHITESPACE=7, PUNCTUATION=8;
+		NUMBER_AS_WORD=5, LINK_IN_RANGE=6, UNITS=7, WHITESPACE=8, PUNCTUATION=9;
 	public static final String[] tokenNames = {
 		"<INVALID>", "DIGI", "SIMPLE_FRACTION", "NUMBER_WITH_DECIMALS", "COMPLEX_FRACTION", 
-		"LINK_IN_RANGE", "UNITS", "WHITESPACE", "PUNCTUATION"
+		"NUMBER_AS_WORD", "LINK_IN_RANGE", "UNITS", "WHITESPACE", "PUNCTUATION"
 	};
 	public static final int
-		RULE_measure = 0, RULE_unit = 1, RULE_number = 2, RULE_numberWithDecimals = 3, 
-		RULE_simpleFraction = 4, RULE_complexFranction = 5, RULE_value = 6, RULE_lowerBoundValue = 7, 
-		RULE_upperBoundValue = 8, RULE_rangeValue = 9;
+		RULE_measure = 0, RULE_unit = 1, RULE_digi = 2, RULE_numberAsWord = 3, 
+		RULE_number = 4, RULE_numberWithDecimals = 5, RULE_simpleFraction = 6, 
+		RULE_complexFranction = 7, RULE_value = 8, RULE_lowerBoundValue = 9, RULE_upperBoundValue = 10, 
+		RULE_rangeValue = 11;
 	public static final String[] ruleNames = {
-		"measure", "unit", "number", "numberWithDecimals", "simpleFraction", "complexFranction", 
-		"value", "lowerBoundValue", "upperBoundValue", "rangeValue"
+		"measure", "unit", "digi", "numberAsWord", "number", "numberWithDecimals", 
+		"simpleFraction", "complexFranction", "value", "lowerBoundValue", "upperBoundValue", 
+		"rangeValue"
 	};
 
 	@Override
@@ -80,18 +82,18 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 		enterRule(_localctx, 0, RULE_measure);
 		int _la;
 		try {
-			setState(28);
+			setState(32);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(20); value();
-				setState(22);
+				setState(24); value();
+				setState(26);
 				_la = _input.LA(1);
 				if (_la==UNITS) {
 					{
-					setState(21); unit();
+					setState(25); unit();
 					}
 				}
 
@@ -103,12 +105,12 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				{
-				setState(24); rangeValue();
-				setState(26);
+				setState(28); rangeValue();
+				setState(30);
 				_la = _input.LA(1);
 				if (_la==UNITS) {
 					{
-					setState(25); unit();
+					setState(29); unit();
 					}
 				}
 
@@ -150,7 +152,79 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(30); match(UNITS);
+			setState(34); match(UNITS);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DigiContext extends ParserRuleContext {
+		public TerminalNode DIGI() { return getToken(ChemicalIngredientsGrammarParser.DIGI, 0); }
+		public DigiContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_digi; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ChemicalIngredientsGrammarListener ) ((ChemicalIngredientsGrammarListener)listener).enterDigi(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ChemicalIngredientsGrammarListener ) ((ChemicalIngredientsGrammarListener)listener).exitDigi(this);
+		}
+	}
+
+	public final DigiContext digi() throws RecognitionException {
+		DigiContext _localctx = new DigiContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_digi);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(36); match(DIGI);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class NumberAsWordContext extends ParserRuleContext {
+		public TerminalNode NUMBER_AS_WORD() { return getToken(ChemicalIngredientsGrammarParser.NUMBER_AS_WORD, 0); }
+		public NumberAsWordContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_numberAsWord; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ChemicalIngredientsGrammarListener ) ((ChemicalIngredientsGrammarListener)listener).enterNumberAsWord(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ChemicalIngredientsGrammarListener ) ((ChemicalIngredientsGrammarListener)listener).exitNumberAsWord(this);
+		}
+	}
+
+	public final NumberAsWordContext numberAsWord() throws RecognitionException {
+		NumberAsWordContext _localctx = new NumberAsWordContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_numberAsWord);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(38); match(NUMBER_AS_WORD);
 			}
 		}
 		catch (RecognitionException re) {
@@ -165,7 +239,12 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 	}
 
 	public static class NumberContext extends ParserRuleContext {
-		public TerminalNode DIGI() { return getToken(ChemicalIngredientsGrammarParser.DIGI, 0); }
+		public DigiContext digi() {
+			return getRuleContext(DigiContext.class,0);
+		}
+		public NumberAsWordContext numberAsWord() {
+			return getRuleContext(NumberAsWordContext.class,0);
+		}
 		public NumberContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -182,13 +261,24 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final NumberContext number() throws RecognitionException {
 		NumberContext _localctx = new NumberContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_number);
+		enterRule(_localctx, 8, RULE_number);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			{
-			setState(32); match(DIGI);
-			}
+			setState(42);
+			switch (_input.LA(1)) {
+			case DIGI:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(40); digi();
+				}
+				break;
+			case NUMBER_AS_WORD:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(41); numberAsWord();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -220,11 +310,11 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final NumberWithDecimalsContext numberWithDecimals() throws RecognitionException {
 		NumberWithDecimalsContext _localctx = new NumberWithDecimalsContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_numberWithDecimals);
+		enterRule(_localctx, 10, RULE_numberWithDecimals);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(34); match(NUMBER_WITH_DECIMALS);
+			setState(44); match(NUMBER_WITH_DECIMALS);
 			}
 		}
 		catch (RecognitionException re) {
@@ -256,11 +346,11 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final SimpleFractionContext simpleFraction() throws RecognitionException {
 		SimpleFractionContext _localctx = new SimpleFractionContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_simpleFraction);
+		enterRule(_localctx, 12, RULE_simpleFraction);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(36); match(SIMPLE_FRACTION);
+			setState(46); match(SIMPLE_FRACTION);
 			}
 		}
 		catch (RecognitionException re) {
@@ -292,11 +382,11 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final ComplexFranctionContext complexFranction() throws RecognitionException {
 		ComplexFranctionContext _localctx = new ComplexFranctionContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_complexFranction);
+		enterRule(_localctx, 14, RULE_complexFranction);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(38); match(COMPLEX_FRACTION);
+			setState(48); match(COMPLEX_FRACTION);
 			}
 		}
 		catch (RecognitionException re) {
@@ -339,32 +429,33 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final ValueContext value() throws RecognitionException {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_value);
+		enterRule(_localctx, 16, RULE_value);
 		try {
-			setState(44);
+			setState(54);
 			switch (_input.LA(1)) {
 			case DIGI:
+			case NUMBER_AS_WORD:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(40); number();
+				setState(50); number();
 				}
 				break;
 			case NUMBER_WITH_DECIMALS:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(41); numberWithDecimals();
+				setState(51); numberWithDecimals();
 				}
 				break;
 			case SIMPLE_FRACTION:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(42); simpleFraction();
+				setState(52); simpleFraction();
 				}
 				break;
 			case COMPLEX_FRACTION:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(43); complexFranction();
+				setState(53); complexFranction();
 				}
 				break;
 			default:
@@ -402,11 +493,11 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final LowerBoundValueContext lowerBoundValue() throws RecognitionException {
 		LowerBoundValueContext _localctx = new LowerBoundValueContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_lowerBoundValue);
+		enterRule(_localctx, 18, RULE_lowerBoundValue);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(46); value();
+			setState(56); value();
 			}
 		}
 		catch (RecognitionException re) {
@@ -440,11 +531,11 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final UpperBoundValueContext upperBoundValue() throws RecognitionException {
 		UpperBoundValueContext _localctx = new UpperBoundValueContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_upperBoundValue);
+		enterRule(_localctx, 20, RULE_upperBoundValue);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(48); value();
+			setState(58); value();
 			}
 		}
 		catch (RecognitionException re) {
@@ -482,13 +573,13 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 
 	public final RangeValueContext rangeValue() throws RecognitionException {
 		RangeValueContext _localctx = new RangeValueContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_rangeValue);
+		enterRule(_localctx, 22, RULE_rangeValue);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(50); lowerBoundValue();
-			setState(51); match(LINK_IN_RANGE);
-			setState(52); upperBoundValue();
+			setState(60); lowerBoundValue();
+			setState(61); match(LINK_IN_RANGE);
+			setState(62); upperBoundValue();
 			}
 		}
 		catch (RecognitionException re) {
@@ -503,20 +594,22 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\n9\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3"+
-		"\2\3\2\5\2\31\n\2\3\2\3\2\5\2\35\n\2\5\2\37\n\2\3\3\3\3\3\4\3\4\3\5\3"+
-		"\5\3\6\3\6\3\7\3\7\3\b\3\b\3\b\3\b\5\b/\n\b\3\t\3\t\3\n\3\n\3\13\3\13"+
-		"\3\13\3\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\2\64\2\36\3\2\2\2\4 \3"+
-		"\2\2\2\6\"\3\2\2\2\b$\3\2\2\2\n&\3\2\2\2\f(\3\2\2\2\16.\3\2\2\2\20\60"+
-		"\3\2\2\2\22\62\3\2\2\2\24\64\3\2\2\2\26\30\5\16\b\2\27\31\5\4\3\2\30\27"+
-		"\3\2\2\2\30\31\3\2\2\2\31\37\3\2\2\2\32\34\5\24\13\2\33\35\5\4\3\2\34"+
-		"\33\3\2\2\2\34\35\3\2\2\2\35\37\3\2\2\2\36\26\3\2\2\2\36\32\3\2\2\2\37"+
-		"\3\3\2\2\2 !\7\b\2\2!\5\3\2\2\2\"#\7\3\2\2#\7\3\2\2\2$%\7\5\2\2%\t\3\2"+
-		"\2\2&\'\7\4\2\2\'\13\3\2\2\2()\7\6\2\2)\r\3\2\2\2*/\5\6\4\2+/\5\b\5\2"+
-		",/\5\n\6\2-/\5\f\7\2.*\3\2\2\2.+\3\2\2\2.,\3\2\2\2.-\3\2\2\2/\17\3\2\2"+
-		"\2\60\61\5\16\b\2\61\21\3\2\2\2\62\63\5\16\b\2\63\23\3\2\2\2\64\65\5\20"+
-		"\t\2\65\66\7\7\2\2\66\67\5\22\n\2\67\25\3\2\2\2\6\30\34\36.";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\13C\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
+		"\f\t\f\4\r\t\r\3\2\3\2\5\2\35\n\2\3\2\3\2\5\2!\n\2\5\2#\n\2\3\3\3\3\3"+
+		"\4\3\4\3\5\3\5\3\6\3\6\5\6-\n\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\n\3"+
+		"\n\5\n9\n\n\3\13\3\13\3\f\3\f\3\r\3\r\3\r\3\r\3\r\2\2\16\2\4\6\b\n\f\16"+
+		"\20\22\24\26\30\2\2=\2\"\3\2\2\2\4$\3\2\2\2\6&\3\2\2\2\b(\3\2\2\2\n,\3"+
+		"\2\2\2\f.\3\2\2\2\16\60\3\2\2\2\20\62\3\2\2\2\228\3\2\2\2\24:\3\2\2\2"+
+		"\26<\3\2\2\2\30>\3\2\2\2\32\34\5\22\n\2\33\35\5\4\3\2\34\33\3\2\2\2\34"+
+		"\35\3\2\2\2\35#\3\2\2\2\36 \5\30\r\2\37!\5\4\3\2 \37\3\2\2\2 !\3\2\2\2"+
+		"!#\3\2\2\2\"\32\3\2\2\2\"\36\3\2\2\2#\3\3\2\2\2$%\7\t\2\2%\5\3\2\2\2&"+
+		"\'\7\3\2\2\'\7\3\2\2\2()\7\7\2\2)\t\3\2\2\2*-\5\6\4\2+-\5\b\5\2,*\3\2"+
+		"\2\2,+\3\2\2\2-\13\3\2\2\2./\7\5\2\2/\r\3\2\2\2\60\61\7\4\2\2\61\17\3"+
+		"\2\2\2\62\63\7\6\2\2\63\21\3\2\2\2\649\5\n\6\2\659\5\f\7\2\669\5\16\b"+
+		"\2\679\5\20\t\28\64\3\2\2\28\65\3\2\2\28\66\3\2\2\28\67\3\2\2\29\23\3"+
+		"\2\2\2:;\5\22\n\2;\25\3\2\2\2<=\5\22\n\2=\27\3\2\2\2>?\5\24\13\2?@\7\b"+
+		"\2\2@A\5\26\f\2A\31\3\2\2\2\7\34 \",8";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

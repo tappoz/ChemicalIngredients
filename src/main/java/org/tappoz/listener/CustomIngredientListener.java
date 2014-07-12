@@ -15,7 +15,6 @@ public class CustomIngredientListener extends ChemicalIngredientsGrammarBaseList
 
     @Override
     public void enterValue(@NotNull ChemicalIngredientsGrammarParser.ValueContext ctx) {
-        value = null;
 
         ChemicalIngredientsGrammarParser.NumberContext numberContext = ctx.number();
         if (numberContext != null) {

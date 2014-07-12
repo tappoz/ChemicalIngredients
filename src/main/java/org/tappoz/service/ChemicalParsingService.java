@@ -87,6 +87,7 @@ public class ChemicalParsingService {
         ingredientContent = ingredientLabelCleaningService.cleanIngredientName(ingredientContent);
 
         log.info("About to return a parsed chemical ingredient for the input string: '" + complexIngredient + "'");
+        log.info("The parsed java bean is: " + ingredientContent.toJson());
         return ingredientContent;
     }
 
