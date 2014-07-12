@@ -67,7 +67,13 @@ public class IngredientAdapter {
         }
 
         // validating the unit of measure
-        validatedAmount.setUnitOfMeasure(UnitOfMeasure.find(basicAmount.getUnitOfMeasure()));
+        if(basicAmount.getUnitOfMeasure() == null) {
+            UnitOfMeasure defaultUnitOfMeasure = UnitOfMeasure.unit;
+            log.warn("It seems we could not find a unit of measure in the original ingredient, set it to: '" + defaultUnitOfMeasure + "'");
+            validatedAmount.setUnitOfMeasure(defaultUnitOfMeasure);
+        } else {
+            validatedAmount.setUnitOfMeasure(UnitOfMeasure.find(basicAmount.getUnitOfMeasure()));
+        }
 
         return validatedAmount;
     }

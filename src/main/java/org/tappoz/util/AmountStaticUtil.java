@@ -75,8 +75,8 @@ public class AmountStaticUtil {
 
         BigDecimal sumAsBigDecimal = new BigDecimal(0, MathContext.DECIMAL64);
         for (String expectedNumber : arrayOfExpectedNumbers) {
-            BigDecimal currentParsedNumber = new BigDecimal(parseNumber(expectedNumber), MathContext.DECIMAL64);
-            sumAsBigDecimal.add(currentParsedNumber);
+            BigDecimal currentParsedNumber = new BigDecimal(expectedNumber, MathContext.DECIMAL64);
+            sumAsBigDecimal = sumAsBigDecimal.add(currentParsedNumber);
         }
         BigDecimal arrayLength = new BigDecimal(arrayOfExpectedNumbers.length, MathContext.DECIMAL64);
 
