@@ -38,7 +38,7 @@ public class ChemicalIngredientsRunner {
     private void startProcess(String[] args) {
         List<String> chemicalIngredientsToParse = new ArrayList<>();
         chemicalIngredientsToParse.add("3 to 4 ml of water");
-        chemicalIngredientsToParse.add("5 grams of Calcium Carbide");
+        chemicalIngredientsToParse.add("5 grams of calcium carbide");
         chemicalIngredientsToParse.add("1 1/2 grams of sodium carbonate");
         chemicalIngredientsToParse.add("50 grams of bark powder");
         chemicalIngredientsToParse.add("1/2 litres of water");
@@ -47,11 +47,11 @@ public class ChemicalIngredientsRunner {
         chemicalIngredientsToParse.add("275 ml of naptha");
         chemicalIngredientsToParse.add("2 1/2 grams of white crystal DMT");
         chemicalIngredientsToParse.add("2 or 3 ounces of alcohol");
-        chemicalIngredientsToParse.add("3.5 grams of Sodium Bisulfate");
-        chemicalIngredientsToParse.add("0.1 grams of Luminol");
+        chemicalIngredientsToParse.add("3.5 grams of sodium bisulfate");
+        chemicalIngredientsToParse.add("0.1 grams of luminol");
         chemicalIngredientsToParse.add("three parts potassium nitrate");
         chemicalIngredientsToParse.add("1 1/2 cups KNO3");
-        chemicalIngredientsToParse.add("five parts of Charcoal");
+        chemicalIngredientsToParse.add("five parts of charcoal");
         chemicalIngredientsToParse.add("5 to 10 ml of phenolphthalein");
 
         for(String currentStringToParse : chemicalIngredientsToParse) {
