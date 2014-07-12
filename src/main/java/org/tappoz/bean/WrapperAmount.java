@@ -1,5 +1,6 @@
 package org.tappoz.bean;
 
+import com.google.gson.Gson;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -29,5 +30,10 @@ public class WrapperAmount {
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
+    }
+
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }
