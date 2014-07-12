@@ -25,14 +25,8 @@ public class ChemicalIngredientsRunner {
 
     public static void main(String[] args) {
 
-
-//        HelloService helloService = context.getBean(HelloService.class);
-//        System.out.println(helloService.sayHello());
-
         ChemicalIngredientsRunner mainRunner = new ChemicalIngredientsRunner();
         mainRunner.startProcess(args);
-
-//        mainRunner.chemicalParsingService.processComplexIngredient("3 to 4 ml of water");
     }
 
     private void startProcess(String[] args) {
@@ -57,7 +51,6 @@ public class ChemicalIngredientsRunner {
         for(String currentStringToParse : chemicalIngredientsToParse) {
 
             IngredientContent currentIngredientContent = chemicalParsingService.processComplexIngredient(currentStringToParse);
-            System.out.println("");
             System.out.println(currentIngredientContent.toString());
         }
     }

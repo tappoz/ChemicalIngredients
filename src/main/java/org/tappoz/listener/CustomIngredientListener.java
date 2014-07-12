@@ -52,15 +52,12 @@ public class CustomIngredientListener extends ChemicalIngredientsGrammarBaseList
                 return;
             }
         }
-
-        System.out.println("Found this value: " + this.value);
     }
 
     @Override
     public void enterUnit(@NotNull ChemicalIngredientsGrammarParser.UnitContext ctx) {
         unitOfMeasure = null;
         String foundText = ctx.getText();
-        System.out.println("Adding: '" + foundText + "' to unitOfMeasure.");
         unitOfMeasure = foundText;
     }
 
