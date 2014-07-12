@@ -1,6 +1,8 @@
 package org.tappoz.service;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tappoz.bean.BasicAmount;
@@ -15,6 +17,8 @@ import java.util.regex.Pattern;
  */
 @Service
 public class ChemicalParsingService {
+
+    private final static Logger log = LoggerFactory.getLogger(ChemicalParsingService.class);
 
     @Autowired
     ChemicalStringProcessorService chemicalStringProcessorService;
@@ -35,7 +39,7 @@ public class ChemicalParsingService {
         WrapperAmount wrapperAmount = new WrapperAmount(); // the amount outside of the round brackets e.g. "2 (14 1/2 ounce) cans"
         if(matcherAmountInBrakets.find()) {
             String matchedSubStringRegardingAmountInBrakets = matcherAmountInBrakets.group();
-            System.out.println("matchedSubStringRegardingAmountInBrakets: '" + matchedSubStringRegardingAmountInBrakets + "'");
+            log.debug("found a hidden amount inside brackets: '" + matchedSubStringRegardingAmountInBrakets + "'");
             basicAmount = chemicalStringProcessorService.parseThisIngredient(matchedSubStringRegardingAmountInBrakets);
             ingredientContent.setBasicAmount(basicAmount);
 
