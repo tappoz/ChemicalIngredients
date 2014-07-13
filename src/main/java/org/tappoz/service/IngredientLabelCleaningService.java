@@ -18,17 +18,34 @@ public class IngredientLabelCleaningService {
     private final static String[] STOP_WORD_REGEX = {"^of\\s", };
 
     /**
-     * This method cleans the chemical ingredient name
-     * of the input object trimming, and normalising the blank spaces.
-     * Then, according to a list of stop words (as regex), deletes those stop words.
-     *
-     * @see {@link #cleanIngredientName(java.util.List)}
+     * This method applies on the input bean {@link org.tappoz.bean.IngredientContent}.
+     * For the functionality @see {@link #cleanIngredientName(String)}
      *
      * @param ingredientContent the input bean
      * @return the input bean, cleaned
      */
     public IngredientContent cleanIngredientName(IngredientContent ingredientContent) {
         String ingredientNameToBeCleaned = ingredientContent.getIngredientName();
+
+        String cleanedIngredientName = this.cleanIngredientName(ingredientNameToBeCleaned);
+
+        ingredientContent.setIngredientName(cleanedIngredientName);
+        log.debug("About to return the object with the cleaned name: '" + cleanedIngredientName + "'");
+        return ingredientContent;
+    }
+
+    /**
+     * This method cleans the chemical ingredient name
+     * of the input object trimming, and normalising the blank spaces.
+     * Then, according to a list of stop words (as regex), deletes those stop words.
+     *
+     * @see {@link #cleanIngredientName(String)}
+     * @see {@link #cleanIngredientName(java.util.List)}
+     *
+     * @param ingredientNameToBeCleaned the input string representing a chemical ingredient to be cleaned
+     * @return the input bean, cleaned
+     */
+    public String cleanIngredientName(String ingredientNameToBeCleaned) {
 
         // normalising white spaces:
         // removing leading and trailing whitespace,
@@ -40,14 +57,12 @@ public class IngredientLabelCleaningService {
             cleanedIngredientName = cleanedIngredientName.replaceAll(currentRegex, "");
         }
 
-        ingredientContent.setIngredientName(cleanedIngredientName);
-        log.debug("About to return the object with the cleaned name: '" + cleanedIngredientName + "'");
-        return ingredientContent;
+        return cleanedIngredientName;
     }
 
     /**
      * This method applies on lists of objects.
-     * For the functionality @see {@link #cleanIngredientName(org.tappoz.bean.IngredientContent)}
+     * For the functionality @see {@link #cleanIngredientName(String)}
      *
      * @param ingredientContentList a list of input ingredients
      * @return a list of input ingredients, cleaned

@@ -94,10 +94,10 @@ public class ChemicalParsingService {
             expectedIngredientName = StringUtils.remove(expectedIngredientName,basicAmount.getUnitOfMeasure());
         }
 
+        // cleaning the ingredient name
+        expectedIngredientName = ingredientLabelCleaningService.cleanIngredientName(expectedIngredientName);
         // setting what is remaining after the parsing of the amounts
         ingredientContent.setIngredientName(expectedIngredientName);
-        // cleaning the ingredient name
-        ingredientContent = ingredientLabelCleaningService.cleanIngredientName(ingredientContent);
 
         log.info("About to return a parsed chemical ingredient for the input string: '" + complexIngredient + "'");
         log.debug("The parsed java bean is: " + ingredientContent.toJson());
