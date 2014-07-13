@@ -36,6 +36,14 @@ public class ChemicalStringProcessorService {
         CustomIngredientListener listener = new CustomIngredientListener();
         log.info("Just set all the parsing environment.");
 
+        // the following statements are to suppress error messages in the log
+        // because the grammar is currently complaining about the
+        // string suffixes representing the ingredient names
+        // which are not defined in any lexer/parser rule in the grammar itself
+        // (in fact they are treated outside of the grammar using some regex)
+        lexer.removeErrorListeners();
+        parser.removeErrorListeners();
+
         ChemicalIngredientsGrammarParser.MeasureContext measureContext = parser.measure();
         walker.walk(listener, measureContext);
         log.info("Just walked on the input string according to the grammar rules.");
