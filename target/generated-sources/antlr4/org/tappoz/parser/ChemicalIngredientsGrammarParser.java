@@ -54,14 +54,14 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class MeasureContext extends ParserRuleContext {
-		public UnitContext unit() {
-			return getRuleContext(UnitContext.class,0);
-		}
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
 		public RangeValueContext rangeValue() {
 			return getRuleContext(RangeValueContext.class,0);
+		}
+		public UnitContext unit() {
+			return getRuleContext(UnitContext.class,0);
 		}
 		public MeasureContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -401,17 +401,17 @@ public class ChemicalIngredientsGrammarParser extends Parser {
 	}
 
 	public static class ValueContext extends ParserRuleContext {
+		public ComplexFranctionContext complexFranction() {
+			return getRuleContext(ComplexFranctionContext.class,0);
+		}
 		public NumberContext number() {
 			return getRuleContext(NumberContext.class,0);
-		}
-		public SimpleFractionContext simpleFraction() {
-			return getRuleContext(SimpleFractionContext.class,0);
 		}
 		public NumberWithDecimalsContext numberWithDecimals() {
 			return getRuleContext(NumberWithDecimalsContext.class,0);
 		}
-		public ComplexFranctionContext complexFranction() {
-			return getRuleContext(ComplexFranctionContext.class,0);
+		public SimpleFractionContext simpleFraction() {
+			return getRuleContext(SimpleFractionContext.class,0);
 		}
 		public ValueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);

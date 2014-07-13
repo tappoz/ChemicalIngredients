@@ -9,15 +9,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#simpleFraction}.
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#upperBoundValue}.
 	 * @param ctx the parse tree
 	 */
-	void enterSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx);
+	void enterUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#simpleFraction}.
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#upperBoundValue}.
 	 * @param ctx the parse tree
 	 */
-	void exitSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx);
+	void exitUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#complexFranction}.
@@ -31,17 +31,6 @@ public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	void exitComplexFranction(@NotNull ChemicalIngredientsGrammarParser.ComplexFranctionContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#number}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#number}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx);
-
-	/**
 	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#unit}.
 	 * @param ctx the parse tree
 	 */
@@ -51,28 +40,6 @@ public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitUnit(@NotNull ChemicalIngredientsGrammarParser.UnitContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#measure}.
-	 * @param ctx the parse tree
-	 */
-	void enterMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#measure}.
-	 * @param ctx the parse tree
-	 */
-	void exitMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberWithDecimals}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberWithDecimals}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#lowerBoundValue}.
@@ -86,26 +53,15 @@ public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	void exitLowerBoundValue(@NotNull ChemicalIngredientsGrammarParser.LowerBoundValueContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#upperBoundValue}.
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#measure}.
 	 * @param ctx the parse tree
 	 */
-	void enterUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx);
+	void enterMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#upperBoundValue}.
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#measure}.
 	 * @param ctx the parse tree
 	 */
-	void exitUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#digi}.
-	 * @param ctx the parse tree
-	 */
-	void enterDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#digi}.
-	 * @param ctx the parse tree
-	 */
-	void exitDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx);
+	void exitMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#rangeValue}.
@@ -119,15 +75,15 @@ public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	void exitRangeValue(@NotNull ChemicalIngredientsGrammarParser.RangeValueContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberAsWord}.
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#digi}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx);
+	void enterDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberAsWord}.
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#digi}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx);
+	void exitDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#value}.
@@ -139,4 +95,48 @@ public interface ChemicalIngredientsGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValue(@NotNull ChemicalIngredientsGrammarParser.ValueContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#simpleFraction}.
+	 * @param ctx the parse tree
+	 */
+	void enterSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#simpleFraction}.
+	 * @param ctx the parse tree
+	 */
+	void exitSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberAsWord}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberAsWord}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberWithDecimals}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#numberWithDecimals}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ChemicalIngredientsGrammarParser#number}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ChemicalIngredientsGrammarParser#number}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx);
 }

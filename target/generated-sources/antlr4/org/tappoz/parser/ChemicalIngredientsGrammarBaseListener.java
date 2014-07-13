@@ -17,13 +17,13 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx) { }
+	@Override public void enterUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx) { }
+	@Override public void exitUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -43,19 +43,6 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterUnit(@NotNull ChemicalIngredientsGrammarParser.UnitContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -63,32 +50,6 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitUnit(@NotNull ChemicalIngredientsGrammarParser.UnitContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -108,26 +69,13 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx) { }
+	@Override public void enterMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUpperBoundValue(@NotNull ChemicalIngredientsGrammarParser.UpperBoundValueContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx) { }
+	@Override public void exitMeasure(@NotNull ChemicalIngredientsGrammarParser.MeasureContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -147,13 +95,13 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx) { }
+	@Override public void enterDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx) { }
+	@Override public void exitDigi(@NotNull ChemicalIngredientsGrammarParser.DigiContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -167,6 +115,58 @@ public class ChemicalIngredientsGrammarBaseListener implements ChemicalIngredien
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitValue(@NotNull ChemicalIngredientsGrammarParser.ValueContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSimpleFraction(@NotNull ChemicalIngredientsGrammarParser.SimpleFractionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumberAsWord(@NotNull ChemicalIngredientsGrammarParser.NumberAsWordContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumberWithDecimals(@NotNull ChemicalIngredientsGrammarParser.NumberWithDecimalsContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumber(@NotNull ChemicalIngredientsGrammarParser.NumberContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
