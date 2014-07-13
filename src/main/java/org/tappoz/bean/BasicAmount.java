@@ -3,9 +3,6 @@ package org.tappoz.bean;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-/**
- * Created by tappoz on 11/07/14.
- */
 public class BasicAmount {
 
     private String value;
@@ -41,6 +38,11 @@ public class BasicAmount {
         return ToStringBuilder.reflectionToString(this);
     }
 
+    /**
+     * Convenience method to serialise this bean as a JSON file using the Gson library.
+     * @see {@link com.google.gson.Gson#toJson(Object)}
+     * @return a string representing the bean in JSON format
+     */
     public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);

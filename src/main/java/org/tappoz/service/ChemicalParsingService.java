@@ -14,21 +14,34 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by tappoz on 11/07/14.
- */
 @Service
 public class ChemicalParsingService {
 
     private final static Logger log = LoggerFactory.getLogger(ChemicalParsingService.class);
 
-    private final static String AMOUNT_IN_BRAKETS = "\\([0-9]+\\/?[\\w]+[^\\(]*\\):?"; // matches the brackets and their content in: "2 (14 1/2 ounce) cans"
+    // matches the brackets and their content in: "2 (14 1/2 ounce) cans"
+    private final static String AMOUNT_IN_BRAKETS = "\\([0-9]+\\/?[\\w]+[^\\(]*\\):?";
 
     @Autowired
     private ChemicalStringProcessorService chemicalStringProcessorService;
     @Autowired
     private IngredientLabelCleaningService ingredientLabelCleaningService;
 
+    /**
+     * This method, given an input string representing a chemical ingredient
+     * e.g. "5 tablespoons (70 grams) of lye" parses all its parts.
+     * (the detailed amount, the generic amount if present, the chemical ingredient name)
+     *
+     * @see {@link org.tappoz.bean.IngredientContent}
+     * @see {@link org.tappoz.service.ChemicalStringProcessorService#parseThisIngredient(String)}
+     * @see {@link org.tappoz.service.IngredientLabelCleaningService#cleanIngredientName(org.tappoz.bean.IngredientContent)}
+     *
+     * There is another method containing the same functionality, that can be applied to lists of strings.
+     * @see {@link #processComplexIngredient(java.util.List)}
+     *
+     * @param complexIngredient a string representing an ingredient
+     * @return {@link org.tappoz.bean.IngredientContent}
+     */
     public IngredientContent processComplexIngredient(String complexIngredient) {
 
         String expectedIngredientName;
@@ -91,6 +104,13 @@ public class ChemicalParsingService {
         return ingredientContent;
     }
 
+    /**
+     * This method contains the same functionality described in:
+     * @see {@link #processComplexIngredient(String)}
+     *
+     * @param complexIngredientList a list of strings representing ingredients
+     * @return a list of {@link org.tappoz.bean.IngredientContent}
+     */
     public List<IngredientContent> processComplexIngredient(List<String> complexIngredientList) {
 
         List<IngredientContent> ingredientContentList = Lists.newArrayList();

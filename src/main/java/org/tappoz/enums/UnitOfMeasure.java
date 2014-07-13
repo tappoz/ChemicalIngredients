@@ -6,9 +6,6 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by tappoz on 12/07/14.
- */
 public enum UnitOfMeasure {
 
     // only lowercase (cfr. the find method below)
@@ -47,15 +44,21 @@ public enum UnitOfMeasure {
         return values;
     }
 
-    public static UnitOfMeasure find(String name) {
+    /**
+     * This method is used to validate an input string representing a unit of measure.
+     *
+     * @param expectedUnitOfMeasure an input string representing a unit of measure
+     * @return an instance of this enum class, null if the unit of measure is not found
+     */
+    public static UnitOfMeasure find(String expectedUnitOfMeasure) {
 
-        String lowerCaseName = name.toLowerCase();
+        String lowerCaseName = expectedUnitOfMeasure.toLowerCase();
         for (UnitOfMeasure currentEnumEvaluated : UnitOfMeasure.values()) {
             if (currentEnumEvaluated.getValues().contains(lowerCaseName)) {
                 return currentEnumEvaluated;
             }
         }
-        log.warn("Can not find this expected unit of measure coming as an input string: '" + name + "' returning null");
+        log.warn("Can not find this expected unit of measure coming as an input string: '" + expectedUnitOfMeasure + "' returning null");
         return null;
     }
 }

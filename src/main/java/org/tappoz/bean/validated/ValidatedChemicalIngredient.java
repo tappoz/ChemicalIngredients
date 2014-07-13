@@ -4,9 +4,6 @@ import com.google.gson.Gson;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.tappoz.enums.UnitOfMeasure;
 
-/**
- * Created by tappoz on 12/07/14.
- */
 public class ValidatedChemicalIngredient {
 
     private ValidatedAmount detailedAmount;
@@ -42,6 +39,11 @@ public class ValidatedChemicalIngredient {
         return ToStringBuilder.reflectionToString(this);
     }
 
+    /**
+     * Convenience method to serialise this bean as a JSON file using the Gson library.
+     * @see {@link com.google.gson.Gson#toJson(Object)}
+     * @return a string representing the bean in JSON format
+     */
     public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);

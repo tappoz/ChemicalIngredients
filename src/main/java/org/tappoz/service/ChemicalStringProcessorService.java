@@ -11,14 +11,22 @@ import org.tappoz.listener.CustomIngredientListener;
 import org.tappoz.parser.ChemicalIngredientsGrammarLexer;
 import org.tappoz.parser.ChemicalIngredientsGrammarParser;
 
-/**
- * Created by tappoz on 11/07/14.
- */
 @Service
 public class ChemicalStringProcessorService {
 
     private final static Logger log = LoggerFactory.getLogger(ChemicalStringProcessorService.class);
 
+    /**
+     * This method prepares the Java code created by ANTLR for the context free grammar,
+     * then runs the input string against the grammar code,
+     * then retrieves the parsed values,
+     * then returns a bean containing those values.
+     *
+     * @see {@link org.tappoz.listener.CustomIngredientListener}
+     *
+     * @param ingredientToBeParsed an input string
+     * @return {@link org.tappoz.bean.BasicAmount}
+     */
     public BasicAmount parseThisIngredient(String ingredientToBeParsed) {
 
         ChemicalIngredientsGrammarLexer lexer = new ChemicalIngredientsGrammarLexer(new ANTLRInputStream(ingredientToBeParsed));

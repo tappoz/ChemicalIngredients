@@ -9,9 +9,6 @@ import org.tappoz.bean.IngredientContent;
 
 import java.util.List;
 
-/**
- * Created by tappoz on 12/07/14.
- */
 @Service
 public class IngredientLabelCleaningService {
 
@@ -20,6 +17,16 @@ public class IngredientLabelCleaningService {
     // this list might become longer according to new cleaning rules
     private final static String[] STOP_WORD_REGEX = {"^of\\s", };
 
+    /**
+     * This method cleans the chemical ingredient name
+     * of the input object trimming, and normalising the blank spaces.
+     * Then, according to a list of stop words (as regex), deletes those stop words.
+     *
+     * @see {@link #cleanIngredientName(java.util.List)}
+     *
+     * @param ingredientContent the input bean
+     * @return the input bean, cleaned
+     */
     public IngredientContent cleanIngredientName(IngredientContent ingredientContent) {
         String ingredientNameToBeCleaned = ingredientContent.getIngredientName();
 
@@ -38,6 +45,13 @@ public class IngredientLabelCleaningService {
         return ingredientContent;
     }
 
+    /**
+     * This method applies on lists of objects.
+     * For the functionality @see {@link #cleanIngredientName(org.tappoz.bean.IngredientContent)}
+     *
+     * @param ingredientContentList a list of input ingredients
+     * @return a list of input ingredients, cleaned
+     */
     public List<IngredientContent> cleanIngredientName(List<IngredientContent> ingredientContentList) {
 
         List<IngredientContent> outputList = Lists.newArrayList();
