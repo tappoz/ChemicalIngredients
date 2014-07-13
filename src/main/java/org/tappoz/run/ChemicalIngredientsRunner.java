@@ -16,7 +16,7 @@ import java.util.List;
 public class ChemicalIngredientsRunner {
 
     /**
-     * This annotation might be highlighted as an error in some IDEs e.g. IntelliJ IDEA,
+     * This annotation might be highlighted as an error by some IDEs e.g. IntelliJ IDEA,
      * however there are no errors given that in the constructor method a Spring context
      * gets loaded enabling the following Spring service to be used.
      *
@@ -33,7 +33,10 @@ public class ChemicalIngredientsRunner {
      */
     public ChemicalIngredientsRunner() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        // the following factory enables a Spring context to work embedded in a main method
+        // instance of a class that gets created outside of Spring's control
         AutowireCapableBeanFactory acbFactory = context.getAutowireCapableBeanFactory();
+        // the class containing the main method gets autowired to the Spring context
         acbFactory.autowireBean(this);
     }
 
